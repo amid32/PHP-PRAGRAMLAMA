@@ -3,7 +3,7 @@
 //MySqli veritabani connect
 $servername = "127.0.0.1";
 $username = "root";
-$password = "";//eger apache servir paketi qurulmushsa burada koda ehtiyac olmur bezi server pagetlerde
+$password = "";//eger apache servir paketi qurulmushsa burada sifre ehtiyac olmur bezi server pagetlerde sifre false olaraq gelir
 
 $conn = new mysqli($servername,$username,$password);
  
