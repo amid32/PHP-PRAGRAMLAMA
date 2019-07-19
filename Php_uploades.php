@@ -1,6 +1,6 @@
 <?php
 
-//"Upload.php" dosya dosya yuklerken icin kod icerir
+//"Upload.php" fayl bir dosyanı yükləmək üçün kodu ehtiva edir:
 $target_dir = "uploads/";
 $target_file = $target_dir.basename($_FILES["fileToUpload"]["name"]);
 $uploadOK= 1;
@@ -17,27 +17,29 @@ if (isset($_POST["submit"])) {
 }
 
 
-//fayl artiq movcud olmadigini yoxlayir
+//Faylın mövcud olduğunu yoxlayın.
 if (file_exists($target_file)) {
     echo "Sorry, file already exists.";
     $uploadOK = 0;
 }
 
-//sinir dosya boytu 
+//limit fayl ölçüsü
 if ($_FILES["fileToUpload"]["size"] > 500000) {
     echo "Sorry, your file is too large.";
     $uploadOK  = 0;
 }
-//sinir dosya turu
+//Müəyyən fayl formatlarına icazə verin
 if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOK = 0;
 }
 
 
-
+//$ UploadOk bir səhv ilə 0-a təyin olub olmadığını yoxlayın
 if ($uploadOK == 0) {
     echo "Sorry your file was not uploaded.";
+    
+    //hər şey tamamsa fayl yükləməyə çalışın
 }else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "Thi file ".basename($_FILES['fileToUpload']["name"]). "has been uploaded.";
